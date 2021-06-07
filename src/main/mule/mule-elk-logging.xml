@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="86ef5569-55d0-442f-b10d-2657bca52a17" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<json-logger:config name="JSON_Logger_Config" doc:name="JSON Logger Config" doc:id="4929be79-874a-4fd6-a076-4444e84358cf" applicationName="mule-cloudhub-elk-logging" applicationVersion="1.0" environment="Sandbox" disabledFields="message" />
+	<flow name="mule-cloudhub-elk-loggingFlow" doc:id="92cd2eaa-287e-4aef-9670-b17cf3e83cf0" >
+		<http:listener doc:name="Listener" doc:id="8f7d9a97-f136-4579-a3fa-5f064003de0b" config-ref="HTTP_Listener_config" path="/elk"/>
+		<set-payload value='#["Hello World!!"]' doc:name="Set Payload" doc:id="7f9c5b3d-79a6-4c2e-a163-0636db40df56" />
+		<json-logger:logger doc:id="a15f82b5-8673-4b74-aea2-69ca675609c6" config-ref="JSON_Logger_Config" message='#["message is " ++ payload]' tracePoint="END"/>
+	</flow>
+</mule>
