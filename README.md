@@ -13,7 +13,7 @@ Logstash -> Elasticsearch -> Kibana
 6) goto email and verify email
 7) click on menu -> management -> stack management -> data -> index management -> index templates -> create template
 8) click on menu -> management -> stack management -> kibana -> index pattern -> create index pattern -> 
-  search for create template(created in 1st step) -> choose timestamp field
+  search for create template(created in 7th step) -> choose timestamp field
 9) click on kibana discover -> select your index pattern
 
 Mule Log4j configuration:
@@ -29,5 +29,6 @@ Mule Log4j configuration:
 ```
 
 url : elasticsearch ELK cloud url.
-
+/applogs : index name (refer 7th and 8th step)
+/_doc : api endpoint
 authorization : base64 encoded form of username:password (refer step 2). this is not elk cloud login creds.
