@@ -28,6 +28,11 @@ Mule Log4j configuration:
  </Appenders>
 ```
 
+```
+<AsyncRoot level="INFO">
+	<AppenderRef ref="ELK-Cloud" />
+</AsyncRoot>
+```
  url : elasticsearch ELK cloud url.
  
  /applogs : index name (refer 7th and 8th step).
