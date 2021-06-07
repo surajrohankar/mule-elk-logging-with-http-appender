@@ -28,5 +28,6 @@ Mule Log4j configuration:
  </Appenders>
 ```
 
-url : elasticsearch ELK cloud url
-authorization : base64 encoded form of username:password (refer step 2). this is not elk cloud login creds
+url : elasticsearch ELK cloud url.
+
+authorization : base64 encoded form of username:password (refer step 2). this is not elk cloud login creds.
