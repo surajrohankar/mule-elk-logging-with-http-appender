@@ -18,11 +18,15 @@ Logstash -> Elasticsearch -> Kibana
 
 Mule Log4j configuration:
 
-<Appenders>
-  <Http name="ELK-Cloud" url="https://observability-deployment-d7446a.es.us-east-1.aws.found.io:9243/applogs/_doc">
-			<Property name="Authorization" value="Basic ${authorization}" />
-			<Property name="Content-Type" value="application/json" />
-			<PatternLayout pattern='%msg' />
+```
+ <Appenders>
+ 	<Http name="ELK-Cloud" url="https://observability-deployment-d7446a.es.us-east-1.aws.found.io:9243/applogs/_doc">
+		<Property name="Authorization" value="Basic ${authorization}" />
+		<Property name="Content-Type" value="application/json" />
+		<PatternLayout pattern='%msg' />
 	</Http>
-</Appenders>
+ </Appenders>
+```
 
+url : elasticsearch ELK cloud url
+authorization : base64 encoded form of username:password (refer step 2). this is not elk cloud login creds
